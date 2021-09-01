@@ -2,7 +2,6 @@ import React from "react";
 import ParkCard from "./ParkCard";
 
 const Parks = (props) => {
-  console.log(props);
   const mapParks = () => {
     let parkArray = Object.values(props.parks);
     return parkArray.map((park) => {
