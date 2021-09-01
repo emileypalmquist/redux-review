@@ -1,25 +1,18 @@
-import React from "react";
+import { useContext } from "react";
 import ParkCard from "./ParkCard";
+import { AppContext } from "../globalState/context";
 
-const Parks = (props) => {
+const Parks = () => {
+  const { parks } = useContext(AppContext);
+
   const mapParks = () => {
-    let parkArray = Object.values(props.parks);
+    let parkArray = Object.values(parks);
     return parkArray.map((park) => {
-      return (
-        <ParkCard
-          key={park.id}
-          increaseVote={props.increaseVote}
-          decreaseVote={props.decreaseVote}
-          park={park}
-        />
-      );
+      return <ParkCard key={park.id} park={park} />;
     });
   };
-  return (
-    <div>
-      <div className="container">{mapParks()}</div>
-    </div>
-  );
+
+  return <div className="container">{mapParks()}</div>;
 };
 
 export default Parks;
