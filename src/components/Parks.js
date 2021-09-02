@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import ParkCard from "./ParkCard";
-import { AppContext } from "../globalState/context";
+import { AppContext } from "../stateContainer/context";
 
 const Parks = () => {
   const { parks } = useContext(AppContext);

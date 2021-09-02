@@ -3,7 +3,7 @@ import { useContext } from "react";
 import Parks from "../components/Parks";
 import ParkCard from "../components/ParkCard";
 
-import { AppContext } from "../globalState/context";
+import { AppContext } from "../stateContainer/context";
 
 function MainPage() {
   const { parks, selectedPark } = useContext(AppContext);

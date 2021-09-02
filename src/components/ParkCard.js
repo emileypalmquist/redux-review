@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { AppContext } from "../globalState/context";
+import { AppContext } from "../stateContainer/context";
 
 const ParkCard = ({ park }) => {
   const { parksDispatch, setSelectedPark } = useContext(AppContext);
