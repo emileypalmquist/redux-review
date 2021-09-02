@@ -2,9 +2,9 @@ import "./App.css";
 import { useEffect, useReducer, useState } from "react";
 import MainPage from "./pages/MainPage";
 
-import { parksReducer } from "./globalState/reducers/parksReducer";
-import { initialParks } from "./globalState/initialStates";
-import { AppContext } from "./globalState/context";
+import { parksReducer } from "./stateContainer/reducers/parksReducer";
+import { initialParks } from "./stateContainer/initialStates";
+import { AppContext } from "./stateContainer/context";
 
 function App() {
   const [parksState, parksDispatch] = useReducer(parksReducer, initialParks);
