@@ -4,6 +4,7 @@ function MainPage() {
   return (
     <div>
       <NationalParks />
+
       <h1>THANKS FOR VOTING</h1>
     </div>
   );
