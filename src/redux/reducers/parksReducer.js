@@ -3,6 +3,8 @@ import Yellowstone from "../../assets/yellowstone.jpg";
 import Zion from "../../assets/zion.jpg";
 import MountRainier from "../../assets/mount-rainier.jpg";
 
+import { INCREASE_VOTE } from "../actionTypes";
+
 const initialParks = {
   1: {
     id: 1,
@@ -30,9 +32,9 @@ const initialParks = {
   },
 };
 
-export function appReducer(state = initialParks, action) {
+export function parksReducer(state = initialParks, action) {
   switch (action.type) {
-    case "INCREASE_VOTE":
+    case INCREASE_VOTE:
       return {
         ...state,
         [action.payload]: {

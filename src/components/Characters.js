@@ -3,9 +3,10 @@ import CharacterCard from "./CharacterCard";
 import { useSelector } from "react-redux";
 
 const Characters = (props) => {
+  const characters = useSelector((state) => state.characters);
+
   const mapCharacters = () => {
-    let charactersArray = Object.values(props.characters);
-    return charactersArray.map((character) => {
+    return characters.map((character) => {
       return <CharacterCard key={character.id} character={character} />;
     });
   };
