@@ -31,6 +31,7 @@ const initialParks = {
     image: MountRainier,
   },
 };
+
 function MainContainer() {
   const [parks, setParks] = useState(initialParks);
 
@@ -56,11 +57,7 @@ function MainContainer() {
 
   return (
     <div>
-      <NationalParks
-        increaseVote={increaseVote}
-        decreaseVote={decreaseVote}
-        parks={parks}
-      />
+      <NationalParks increaseVote={increaseVote} decreaseVote={decreaseVote} />
       <h1>THANKS FOR VOTING</h1>
     </div>
   );

@@ -1,6 +1,9 @@
 import React from "react";
+import { useDispatch, connect } from "react-redux";
 
-const ParkCard = ({ park, increaseVote, decreaseVote }) => {
+const ParkCard = ({ park, decreaseVote, dispatch }) => {
+  // const dispatch = useDispatch();
+
   return (
     <div className="card">
       <h2>Name: {park.name}</h2>
@@ -9,14 +12,14 @@ const ParkCard = ({ park, increaseVote, decreaseVote }) => {
       <br />
       <button
         onClick={() => {
-          increaseVote(park.id);
+          dispatch({ type: "INCREASE_VOTE", payload: park.id });
         }}
       >
         UpVote
       </button>
       <button
         onClick={() => {
-          decreaseVote(park.id);
+          dispatch({ type: "DECREASE_VOTE", payload: park.id });
         }}
       >
         DownVote
@@ -25,4 +28,4 @@ const ParkCard = ({ park, increaseVote, decreaseVote }) => {
   );
 };
 
-export default ParkCard;
+export default connect(null)(ParkCard);

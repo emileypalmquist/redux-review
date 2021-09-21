@@ -1,8 +1,13 @@
 import React from "react";
 import ParkCard from "./ParkCard";
 
+import { useSelector, connect } from "react-redux";
+
 const Parks = (props) => {
+  // const parks = useSelector((state) => state);
+
   console.log(props);
+
   const mapParks = () => {
     let parkArray = Object.values(props.parks);
     return parkArray.map((park) => {
@@ -18,9 +23,13 @@ const Parks = (props) => {
   };
   return (
     <div>
-      <div className="container">{mapParks()}</div>
+      <div className="container"> {mapParks()} </div>
     </div>
   );
 };
 
-export default Parks;
+function mapStateToProps(state) {
+  return { parks: state };
+}
+
+export default connect(mapStateToProps)(Parks);
