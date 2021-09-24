@@ -1,8 +1,13 @@
 import React from "react";
-import { useDispatch, connect } from "react-redux";
+import {bindActionCreators} from "redux"
+import { useDispatch, connect} from "react-redux";
+import { increaseVote, decreaseVote } from "../redux/actions";
 
-const ParkCard = ({ park, decreaseVote, dispatch }) => {
-  // const dispatch = useDispatch();
+const ParkCard = ({ park }) => {
+  const dispatch = useDispatch();
+  const dispatchIncreaseVote = bindActionCreators(increaseVote, dispatch)
+  const dispatchDecreaseVote = bindActionCreators(decreaseVote, dispatch)
+
 
   return (
     <div className="card">
@@ -12,14 +17,16 @@ const ParkCard = ({ park, decreaseVote, dispatch }) => {
       <br />
       <button
         onClick={() => {
-          dispatch({ type: "INCREASE_VOTE", payload: park.id });
+          // dispatch({ type: "INCREASE_VOTE", payload: id })
+          dispatchIncreaseVote(park.id);
         }}
       >
         UpVote
       </button>
       <button
         onClick={() => {
-          dispatch({ type: "DECREASE_VOTE", payload: park.id });
+          // dispatch(decreaseVote(park.id));
+          dispatchDecreaseVote(park.id)
         }}
       >
         DownVote
@@ -27,5 +34,5 @@ const ParkCard = ({ park, decreaseVote, dispatch }) => {
     </div>
   );
 };
-
-export default connect(null)(ParkCard);
+export default ParkCard;
+// export default connect(null, {increaseVote})(ParkCard);

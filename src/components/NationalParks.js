@@ -4,12 +4,12 @@ import ParkCard from "./ParkCard";
 import { useSelector, connect } from "react-redux";
 
 const Parks = (props) => {
-  // const parks = useSelector((state) => state);
+  const parks = useSelector((state) => state.parks);
 
   console.log(props);
 
   const mapParks = () => {
-    let parkArray = Object.values(props.parks);
+    let parkArray = Object.values(parks);
     return parkArray.map((park) => {
       return (
         <ParkCard
@@ -28,8 +28,9 @@ const Parks = (props) => {
   );
 };
 
-function mapStateToProps(state) {
-  return { parks: state };
-}
+export default Parks;
+// function mapStateToProps(state) {
+//   return { parks: state };
+// }
 
-export default connect(mapStateToProps)(Parks);
+// export default connect(mapStateToProps)(Parks);
